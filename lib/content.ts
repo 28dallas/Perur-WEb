@@ -13,7 +13,9 @@ export const fallbackPrograms: Program[] = [
       { label: "Women trained", value: "480+" },
       { label: "Savings groups", value: "42" }
     ],
-    image: { asset: { url: siteImages.programs.women }, alt: "Women in a savings and training session" }
+    image: { asset: { url: siteImages.programs.women }, alt: "Women in a savings and training session" },
+    fundingGoal: 10000,
+    amountRaised: 6500
   },
   {
     _id: "youth-empowerment",
@@ -26,7 +28,9 @@ export const fallbackPrograms: Program[] = [
       { label: "Youth skilled", value: "620+" },
       { label: "Internships linked", value: "110" }
     ],
-    image: { asset: { url: siteImages.programs.youth }, alt: "Youth vocational learning session" }
+    image: { asset: { url: siteImages.programs.youth }, alt: "Youth vocational learning session" },
+    fundingGoal: 15000,
+    amountRaised: 3000
   },
   {
     _id: "child-protection",
@@ -97,7 +101,7 @@ export const fallbackPosts: BlogPost[] = [
     title: "Perur Rays of Hope Marks World Soil Day",
     slug: { current: "perur-rays-of-hope-marks-world-soil-day" },
     excerpt: "PRoH joined local communities to raise awareness on soil conservation and sustainable land use.",
-    category: "Child Protection",
+    category: "Environment",
     publishedAt: "2023-12-05",
     author: { name: "PRoH Team" },
     featuredImage: { asset: { url: siteImages.blog.child }, alt: "Community safeguarding discussion" }
@@ -173,7 +177,7 @@ export const fallbackSiteSettings: SiteSettings = {
   address: "P.O. Box 0-30600, Kapenguria, West Pokot County, Kenya",
   socialLinks: {
     facebook: "",
-    instagram: "",
+    instagram: "https://www.instagram.com/perurraysofhope?igsh=dXBobGY2MXBuZGtu",
     linkedin: "",
     x: ""
   }

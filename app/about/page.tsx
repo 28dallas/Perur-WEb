@@ -2,6 +2,7 @@ import { PageHero } from "@/components/layout/PageHero";
 import { TeamCard } from "@/components/ui/Cards";
 import { Section } from "@/components/ui/Section";
 import { getTeamMembers } from "@/lib/sanity/fetchers";
+import Image from "next/image";
 
 const coreValues = [
   {
@@ -25,7 +26,11 @@ const mandate = [
   "Conserve the environment through climate-smart and restoration initiatives."
 ];
 
-const partners = ["ActionAid Kenya", "Somo", "Rafiki wa Maendeleo Trust", "BOMA Project"];
+const partners = [
+  { name: "World Vision", logo: "/images/partners/world-vision.svg" },
+  { name: "Mastercard", logo: "/images/partners/mastercard.svg" },
+  { name: "Microsoft", logo: "/images/partners/microsoft.svg" }
+];
 
 export default async function AboutPage() {
   const team = await getTeamMembers();
@@ -50,14 +55,14 @@ export default async function AboutPage() {
       <Section title="Vision & Mission">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-xl2 bg-softGray p-6">
-            <h3 className="text-xl font-semibold text-brandBlue">Vision</h3>
+            <h3 className="text-xl font-semibold text-brandBlue"></h3>
             <p className="mt-2 text-slate-700">
               A resilient and empowered community led by skilled women and youth, committed to safeguarding children and preserving the
               environment for sustainable development.
             </p>
           </div>
           <div className="rounded-xl2 bg-softGray p-6">
-            <h3 className="text-xl font-semibold text-brandBlue">Mission</h3>
+            <h3 className="text-xl font-semibold text-brandBlue"></h3>
             <p className="mt-2 text-slate-700">
               To protect children and provide quality education by empowering youth and young women through skills, fostering resilient
               livelihoods, and promoting environmental conservation.
@@ -108,10 +113,13 @@ export default async function AboutPage() {
       </Section>
 
       <Section title="Partners">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {partners.map((partner) => (
-            <article key={partner} className="rounded-xl2 border border-slate-200 bg-white p-5 text-center text-sm font-semibold text-brandBlue">
-              {partner}
+            <article key={partner.name} className="rounded-xl2 border border-slate-200 bg-white p-5 text-center shadow-soft">
+              <div className="relative mx-auto h-16 w-full max-w-[180px]">
+                <Image src={partner.logo} alt={`${partner.name} logo`} fill className="object-contain" />
+              </div>
+              <p className="mt-3 text-sm font-semibold text-brandBlue">{partner.name}</p>
             </article>
           ))}
         </div>
